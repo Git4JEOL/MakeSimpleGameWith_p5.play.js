@@ -4,7 +4,7 @@ var score=0; //score
 var crush =0;
 function setup() {
   createCanvas(800, 400);
-  player=createSprite(70,70,50,50);
+  player=createSprite(70,70,30,30);
   food = new Group();
   //food
    for (var i = 0; i < 10; i++) {
@@ -23,15 +23,14 @@ function setup() {
 function draw() {
   background(50);
   if(mouseIsPressed){ //move while mouseIsPressed
-    player.position.x=mouseX;
-    player.position.y=mouseY;
+    player.attractionPoint(0.09,mouseX,mouseY);
     r=random(0,255);
     g=random(0,255);
     b=random(0,255);
     player.shapeColor = color(r,g,b);//player color change random
   }
     player.overlap(food,eat);
-    if(player.position.x>800 ||player.position.x< 0 || player.position.y> 370 ||player.position.y<30 )
+    if(player.position.x>800 ||player.position.x<0 || player.position.y> 400 ||player.position.y<0 )
     {
       crush=1;
     }
