@@ -1,5 +1,6 @@
+var food;
 var r,g,b; //random value
-var score; //score
+var score=0; //score
 function setup() {
   createCanvas(800, 400);
   player=createSprite(0,0,50,50);
@@ -20,8 +21,7 @@ function setup() {
 }
 
 function draw() {
-  background(100,200,300);
-  fill(100,200,300);
+  background(50);
   if(mouseIsPressed){ //move while mouseIsPressed
     player.position.x=mouseX;
     player.position.y=mouseY;
@@ -35,20 +35,17 @@ function draw() {
     player.remove();//remove if overlap
     food.remove();
     box2.remove();
-    fill(255);
+    fill(0);
     rect(0,0,800,400);//game over white background
-    textSize(50);
+    noStroke();
+    textAlign(CENTER, CENTER);
+     textSize(72);
     fill(255);
-    text('Game over', 300, 200);
+    text('Game over', width/2,height/2);
     noLoop();//stop game
-  if(food.length>0){
-    text(score, width/2, height/2);
-  }
-  else
-    text("you win!", width/2, height/2);
-  }
   drawSprites();
 }
+
 function eat(player,food)
 {
   food.remove();
