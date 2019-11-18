@@ -4,6 +4,7 @@ var score=0; //score
 var crush =0;
 function setup() {
   createCanvas(800, 400);
+  frameRate(60);
   player=createSprite(70,70,30,30);
   food = new Group();
   //food
