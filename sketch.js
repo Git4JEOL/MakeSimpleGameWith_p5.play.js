@@ -1,9 +1,10 @@
 var food;
 var r,g,b; //random value
 var score=0; //score
+var crush =0;
 function setup() {
   createCanvas(800, 400);
-  player=createSprite(0,0,50,50);
+  player=createSprite(70,70,50,50);
   food = new Group();
   //food
    for (var i = 0; i < 10; i++) {
@@ -13,11 +14,10 @@ function setup() {
    }
    obstacles = new Group();
    for (var i = 0; i < 10; i++) {
-     var block =createSprite(random(0,width),random(0,height),random(20,50),random(20,50));
+     var block =createSprite(random(0,width),random(0,height),30,30);
      block.shapeColor= color(255);
      obstacles.add(block);
    }
-
 }
 
 function draw() {
@@ -31,7 +31,11 @@ function draw() {
     player.shapeColor = color(r,g,b);//player color change random
   }
     player.overlap(food,eat);
-  if(player.overlap(obstacles)){//overlap
+    if(player.position.x>800 ||player.position.x< 0 || player.position.y> 370 ||player.position.y<30 )
+    {
+      crush=1;
+    }
+  if(player.overlap(obstacles)||crush==1){//overlap
     player.remove();//remove if overlap
     food.remove();
     box2.remove();
