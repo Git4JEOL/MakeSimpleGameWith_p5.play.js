@@ -4,6 +4,11 @@ function setup() {
   player=createSprite(0,0,50,50);
   box1=createSprite(200,100,200,300);
   box2=createSprite(600,300,200,300);
+  collect = new group();
+   for (var i = 0; i < 10; i++) {
+     var prey =createSprite(random(0,width),randim(0,height));
+     collect.add(prey);
+   }
 }
 
 function draw() {
