@@ -43,8 +43,9 @@ function draw() {
     fill(255);
     text('Game over', width/2,height/2);
     noLoop();//stop game
+  }
   drawSprites();
-}
+
 }
 
 function eat(player,food)
