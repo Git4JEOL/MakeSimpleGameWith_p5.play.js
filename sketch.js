@@ -1,4 +1,5 @@
 var r,g,b; //random value
+var score; //score
 function setup() {
   createCanvas(800, 400);
   player=createSprite(0,0,50,50);
@@ -29,8 +30,8 @@ function draw() {
     b=random(0,255);
     player.shapeColor = color(r,g,b);//player color change random
   }
-  player.overlap(food,eat);
-if(player.overlap(obstacles)){//overlap
+    player.overlap(food,eat);
+  if(player.overlap(obstacles)){//overlap
     player.remove();//remove if overlap
     food.remove();
     box2.remove();
@@ -40,11 +41,16 @@ if(player.overlap(obstacles)){//overlap
     fill(255);
     text('Game over', 300, 200);
     noLoop();//stop game
-
+  if(food.length>0){
+    text(score, width/2, height/2);
+  }
+  else
+    text("you win!", width/2, height/2);
   }
   drawSprites();
 }
 function eat(player,food)
 {
   food.remove();
+  score += 1;
 }
