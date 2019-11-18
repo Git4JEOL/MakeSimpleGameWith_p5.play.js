@@ -15,7 +15,9 @@ function draw() {
 
   box.addSpeed(0.2, 90);
   drawSprites();
-
+  if(mouseIsPressed){
+    box.attractionPoint(0.3,mouseX,mouseY);
+  }
 }
 function mousePressed() {
   box.position.y = mouseY;
