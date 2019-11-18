@@ -45,6 +45,7 @@ function draw() {
     noLoop();//stop game
   drawSprites();
 }
+}
 
 function eat(player,food)
 {
